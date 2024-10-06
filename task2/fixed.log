@@ -1,0 +1,69 @@
+------------------ errors -----------------------------
+
+main.c:9:9: fatal error: 'studio.h' file not found
+    9 | #include<studio.h>
+      |         ^~~~~~~~~~
+
+#include<studio.h> - Строка с дефектом
+#include<stdio.h> - Исправленая Строка
+
+-------------------------------------------------------
+
+Undefined symbols for architecture arm64:
+  "_main", referenced from:
+      <initial-undefines>
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+int Main() - Строка с дефектом
+int main() - Исправленая Строка
+
+-------------------------------------------------------
+
+main.c:21:30: error: expected ';' after expression
+   21 |     scanf("%d", &flat_number)
+      |                              ^
+      |                              ;
+
+scanf("%d", &flat_number) - Строка с дефектом
+scanf("%d", &flat_number); - Исправленая Строка
+
+------------------ warnings ---------------------------
+
+main.c:29:43: warning: data argument not used by format string [-Wformat-extra-args]
+   28 |     printf("Вам нужно подняться на %d этаж\n",
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   29 |            flat_number / flats_per_floor, flat_number);
+      |                                           ^
+
+printf("Вам нужно подняться на %d этаж\n", flat_number / flats_per_floor, flat_number); - Строка с дефектом
+printf("Вам нужно подняться на %d этаж\n", flat_number / flats_per_floor); - Исправленая Строка
+
+------------------ -pedantic -pedantic-errors -ansi ------------------------
+
+------------------ errors ---------------------------
+
+main.c:11:9: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+   11 | int main()
+      |         ^
+      |          void
+
+int main() - Строка с дефектом
+int main(void) - Исправленая Строка
+
+-------------------------------------------------------
+
+main.c:32:2: error: no newline at end of file [-Werror,-Wnewline-eof]
+   32 | }
+      |  ^
+
+Нужно добавить новую (33) строку
+
+------------------ warnings ------------------------
+
+main.c:13:5: warning: // comments are not allowed in this language [-Wcomment]
+   13 |     // Номер квартиры
+      |     ^
+
+// Номер квартиры - Строка с дефектом
+/* Номер квартиры */ - Исправленая Строка
